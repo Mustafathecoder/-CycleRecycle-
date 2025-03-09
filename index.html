@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycle Recycles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(to bottom, #4caf50, #81c784);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+        }
+
+        header nav a:hover {
+            color: #ffeb3b;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            background: url('https://source.unsplash.com/1600x900/?bicycle,nature') no-repeat center center/cover;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+        }
+
+        .hero button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #ffc107;
+            border-radius: 5px;
+        }
+
+        .section {
+            padding: 50px 20px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: center;
+        }
+
+        .service-card {
+            background-color: #fff;
+            color: #000;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        #mapContainer {
+            height: 400px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cycle Recycles</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#map">Recycling Locations</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Welcome to Cycle Recycles</h1>
+        <button onclick="scrollToSection('about')">Learn More</button>
+    </div>
+
+    <section class="section" id="about">
+        <h2>About Us</h2>
+        <p>CycleRecycle is a gamified mobile application designed to encourage recycling by tracking user recycling efforts and offering rewards for consistent and impactful contributions to sustainability. Built with the integration of advanced APIs, the app provides an intuitive, engaging, and data-driven experience.
+            </p>
+    </section>
+
+    <section class="section" id="services">
+        <h2>Your Progress</h2>
+        <p>Points Earned: <span id="points">0</span></p>
+        <p>Current Streaks (Days): <span id="streak">0</span></p>
+    </section>
+
+    <!-- Recycling Locations Section -->
+    <section class="section" id="map">
+        <h2>Recycling Locations</h2>
+        <div id="mapContainer"></div>
+    </section>
+
+    <!-- QR Scanner Section -->
+    <section class="section" id="qr-scanner">
+        <h2>Scan QR Code</h2>
+        <div id="qr-reader" style="width:300px; margin:auto;"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; Cycle Recycles - All Rights Reserved
+    </footer>
+
+    <!-- External Libraries -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="./script.js"></script>
+</body>
+</html>
